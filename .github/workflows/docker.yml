@@ -7,7 +7,8 @@ on:
     branches: [v4_docker]
 
 env:
-  IMAGE_NAME: camweara/cloth_api_caching
+  IMAGE_NAME: camweara/cloth_api_caching:v1 # 🔁 new tag to push
+  BASE_IMAGE: camweara/cloth_api_caching # ⬇️ old image to pull cache from
 
 jobs:
   build-and-push:
@@ -23,11 +24,11 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-      - name: Build and push Docker image with caching
+      - name: Build and push new Docker tag using old tag cache
         uses: docker/build-push-action@v5
         with:
           context: .
           push: true
           tags: ${{ env.IMAGE_NAME }}
-          cache-from: type=registry,ref=${{ env.IMAGE_NAME }}
+          cache-from: type=registry,ref=${{ env.BASE_IMAGE }}
           cache-to: type=inline
