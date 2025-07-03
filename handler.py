@@ -157,9 +157,6 @@ def handler(event):
         prompt1 = input_data["prompt1"]
         prompt2 = input_data["prompt2"]
 
-        print(f"Prompt11: {prompt1}")
-        print(f"Prompt22: {prompt2}")
-
 
         print("🔄 Decoding images...")
         
