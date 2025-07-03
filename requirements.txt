@@ -1,0 +1,14 @@
+accelerate
+diffusers[torch]
+torch==2.5.1
+tqdm==4.66.5
+peft==0.15.2
+protobuf
+torchvision==0.20.1
+bitsandbytes==0.44.1
+sentencepiece==0.2.0
+deepspeed
+supervision
+einops
+timm
+runpod

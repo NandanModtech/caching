@@ -1,0 +1,6 @@
+# Ignore everything by default
+*
+
+# But allow only these two files into build context
+!requirements.txt
+!handler.py
